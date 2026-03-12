@@ -1,0 +1,33 @@
+
+<h2>Admin Dashboard</h2>
+
+<h3>Add Service</h3>
+
+<form method="post">
+<input name="service" placeholder="Service">
+<input name="price" placeholder="Price">
+<button>Add</button>
+</form>
+
+<h3>Services</h3>
+<ul>
+{% for s in services %}
+<li>{{s.service}} - ₹{{s.price}}</li>
+{% endfor %}
+</ul>
+
+<h3>Bookings</h3>
+<ul>
+{% for b in bookings %}
+<li>{{b.name}} | {{b.phone}} | {{b.car}} | {{b.service}}</li>
+{% endfor %}
+</ul>
+
+<h3>Generate GST Invoice</h3>
+
+<form action="/invoice" method="post">
+<input name="name" placeholder="Customer Name">
+<input name="service" placeholder="Service">
+<input name="amount" placeholder="Amount">
+<button>Download Invoice</button>
+</form>
